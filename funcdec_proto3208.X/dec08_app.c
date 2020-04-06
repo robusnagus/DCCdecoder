@@ -2,7 +2,7 @@
 // Project: DCC decoder proto M3208
 // File:    dec08_app.c
 // Author:  Nagus
-// Version: 20200118
+// Version: 20200323
 //
 
 #include "dec08_board.h"
@@ -18,6 +18,11 @@ extern uint32_t SYS_GetTick(void);
 #define FUNC_STATE_AU3          0x02
 #define FUNC_STATE_AU4          0x01
 
+#define LOGI_DCC_ALL            0x80
+#define LOGI_DCC_ONCE           0x01
+#define LOGI_DCC_NONE           0x00
+
+uint8_t dccFilter;
 uint8_t dccIdle;
 char dccOutBuf[24];
 extern uint8_t dccPacket[CFG_DCCR_PKTMAXLEN];
@@ -25,6 +30,7 @@ extern uint8_t dccPktBuf[CFG_DCCR_PKTMAXLEN];
 extern uint8_t dccPktLen;
 
 uint8_t funcState;
+char logStr[128];
 
 void APP_Initialize(void);
 void APP_Tasks(void);
@@ -53,25 +59,33 @@ uint8_t APP_CheckPacket(void)
         tmp = dccPktBuf[idx];
         dccPacket[idx] = tmp;
         sum = sum ^ tmp;
-        tmp = (dccPktBuf[idx] & 0xF0) >> 4;
-        if (tmp > 9)
-            *(pOutStr++) = tmp + 0x37; else *(pOutStr++) = tmp + 0x30;
-        tmp = dccPktBuf[idx] & 0x0F;
-        if (tmp > 9)
-            *(pOutStr++) = tmp + 0x37; else *(pOutStr++) = tmp + 0x30;
-        *(pOutStr++) = ' ';
+        if ((dccFilter & (LOGI_DCC_ALL | LOGI_DCC_ONCE)) != 0) {
+            tmp = (dccPktBuf[idx] & 0xF0) >> 4;
+            if (tmp > 9)
+                *(pOutStr++) = tmp + 0x37; else *(pOutStr++) = tmp + 0x30;
+            tmp = dccPktBuf[idx] & 0x0F;
+            if (tmp > 9)
+                *(pOutStr++) = tmp + 0x37; else *(pOutStr++) = tmp + 0x30;
+            *(pOutStr++) = ' ';
+        }
     }
-    dccPktLen = 0;
-    if (sum)
-        *(pOutStr++) = 'W';
-    *(pOutStr++) = '\r';
-    *(pOutStr++) = '\n';
-    *pOutStr = 0;
-    SERIAL_SendString(dccOutBuf);
-    
+    if ((dccFilter & (LOGI_DCC_ALL | LOGI_DCC_ONCE)) != 0) {
+        dccPktLen = 0;
+        if (sum)
+            *(pOutStr++) = 'W';
+        *(pOutStr++) = '\r';
+        *(pOutStr++) = '\n';
+        *pOutStr = 0;
+        SERIAL_SendString(dccOutBuf);
+        
+        if (dccFilter & LOGI_DCC_ONCE) {
+            dccFilter = dccFilter & ~(LOGI_DCC_ONCE);
+        }
+    }
+      
     return sum;    
     
-} // DCC_ProcessPacket
+} // APP_CheckPacket
 
 void APP_UpdateFrontL(void)
 {
@@ -177,6 +191,7 @@ extern void DCCREC_Init(void);
 void APP_Initialize(void)
 {
 	dccIdle = 0;
+    dccFilter = LOGI_DCC_ALL;
     funcState = FUNC_STATE_INIT;
     
     dccPktLen = 0;
@@ -184,7 +199,7 @@ void APP_Initialize(void)
     DCC_DecoderInit();
     
     SERIAL_Initialize();  
-    SERIAL_SendString("DCCdec08 v.200118.8\r\n");
+    SERIAL_SendString("DCCdec08 v.200323.5\r\n");
     
 } // APP_Initialize
 
@@ -212,7 +227,7 @@ void APP_Tasks(void)
         
         if (APP_CheckPacket() == 0) {
             DCC_DecodePacket();
-        }   
+        }
     }
     
 } // APP_Tasks

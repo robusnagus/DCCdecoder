@@ -42,7 +42,7 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="ATmega_DFP" vendor="Microchip" version="2.0.12"/>
+        <pack name="ATmega_DFP" vendor="Microchip" version="2.1.87"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -174,6 +174,8 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UpdateOptions"
                   value="ToolFirmwareOption.UseLatest"/>
+        <property key="ToolFirmwareToolPack"
+                  value="Press to select which tool pack to use"/>
         <property key="communication.interface" value="updi"/>
         <property key="communication.interface.jtag" value="2wire"/>
         <property key="communication.speed" value="0,500"/>
@@ -205,6 +207,11 @@
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
+        <property key="programoptionsedbg.eraseb4program" value="true"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
       </snap>
     </conf>
   </confs>

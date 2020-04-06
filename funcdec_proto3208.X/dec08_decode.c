@@ -2,8 +2,11 @@
 // Project: DCC decoder proto M3208
 // File:    dec08_decode.c
 // Author:  Nagus
-// Version: 20200118
+// Version: 20200323
 //
+
+#include <stdio.h>
+#include <string.h>
 
 #include "dec08_board.h"
 #include "dec08_cvman.h"
@@ -22,7 +25,7 @@
 #define DCC_CVOP_BITMANIP       0x08
 
 #define DEC_STAT_RESETD         0x01
-#define DEC_STAT_SERVICE        0x02
+#define DEC_STAT_SERVICE        0x80
 #define DEC_STAT_RUNNING        0x00
 
 uint8_t dccPacket[CFG_DCCR_PKTMAXLEN];
@@ -35,6 +38,8 @@ uint8_t decState;
 
 uint8_t cvWrPkt[3];
 uint8_t cvWrCnt;
+
+extern char logStr[128];
 
 void DCC_DecoderInit(void);
 void DCC_DecodePacket(void);
@@ -60,11 +65,16 @@ void DCC_AdvOperation(uint8_t idx)
 
 void DCC_LongService(uint8_t idx)
 {
+    //sprintf(logStr, "LongService %d\r\n", idx);
+    //SERIAL_SendString(logStr);
     uint8_t dat = dccPacket[idx + 2];
     uint8_t cvv;
     switch (dccPacket[idx] & 0x0C) {
         case DCC_CVOP_BYTEVERIFY:
             cvv = CV_GetValue(dccPacket[idx + 1]);
+            sprintf(logStr, "Byte verify, cvv: %02X from %02X\r\n", 
+                    cvv, dccPacket[idx + 1]);
+            SERIAL_SendString(logStr);
             if (cvv == dat) {
                 APP_SetAck();
             }
@@ -89,6 +99,9 @@ void DCC_LongService(uint8_t idx)
             break;
         case DCC_CVOP_BITMANIP:
             cvv = CV_GetValue(dccPacket[idx + 1]);
+            sprintf(logStr, "Bit manip, cvv: %02X from %02X\r\n", 
+                    cvv, dccPacket[idx + 1]);
+            SERIAL_SendString(logStr);
             if (dat & 0x10) {
                 // write bit
                 if ((cvWrPkt[0] == dccPacket[idx]) &&
@@ -112,12 +125,16 @@ void DCC_LongService(uint8_t idx)
                 }                
             }
             else {
+                sprintf(logStr, "Bit dat: %02X\r\n", dat);
+                SERIAL_SendString(logStr);
                 // verify bit
                 if (dat & 0x08) {
-                    if (cvv & (1 << (dat & 0x07)))
+                    // czy bit == 1
+                    if ((cvv & (1 << (dat & 0x07))) != 0)
                         APP_SetAck();
                 }
                 else {
+                    // czy bit == 0
                     if ((cvv & (1 << (dat & 0x07))) == 0)
                         APP_SetAck();
                 }                    
@@ -125,6 +142,8 @@ void DCC_LongService(uint8_t idx)
             }
             break;
         default:
+            sprintf(logStr, "Wrong oper: %02X\r\n", dccPacket[idx]);
+            SERIAL_SendString(logStr);
             break;
     } // switch CV_OP
     
@@ -149,8 +168,8 @@ void DCC_DecodePacket(void)
         // pakiet serwisowy
         if (decState == DEC_STAT_RESETD) {
             decState = DEC_STAT_SERVICE;
-        }     
-        if (decState == DEC_STAT_SERVICE) {
+        }  
+        if ((decState & DEC_STAT_SERVICE) != 0) {
             DCC_LongService(0);
         }
         return;
@@ -178,17 +197,20 @@ void DCC_DecodePacket(void)
             APP_UpdateFuncG1(dccPacket[idx] & 0x1F);
             break;
         case DCC_TYPE_CONFVAR:
-            if ((dccPacket[idx] & 0x10) == 0)
+            //if ((dccPacket[idx] & 0x10) == 0)
                 DCC_LongService(idx);
             break;
         default:
+            sprintf(logStr, "Invalid DCC type: %02X", dccPacket[idx]);
+            SERIAL_SendString(logStr);        
             break;
     } // switch DCC_TYPE_MASK
     
 } // DCC_DecodePacket
 
 void DCC_DecoderInit(void)
-{   
+{  
+    SERIAL_SendString("Decoder init\r\n");
     decAddr  = CV_GetValue(CV001_DecAddr);
     if (decAddr == 0xFF) {
         CV_RestoreDefault();

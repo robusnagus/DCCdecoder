@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/fw_dccdec_3208.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=fw_dccdec_3208.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=fwdccdec3208.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_proto3208.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=funcdec_proto3208.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=funcdecproto3208.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/fwdccdec3208.x/bin
+makeDirectory ${TMPDIR}/funcdecproto3208.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/fwdccdec3208.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/funcdecproto3208.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/fwdccdec3208.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/funcdecproto3208.x.tar *
 checkReturnCode
 
 # Cleanup

@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=fw_dccdec_3208.X
+PROJECTNAME=funcdec_proto3208.X
 
 # Active Configuration
 DEFAULTCONF=default

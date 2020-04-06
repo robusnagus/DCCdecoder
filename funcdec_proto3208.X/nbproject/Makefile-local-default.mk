@@ -34,3 +34,4 @@ MP_AS_DIR="/opt/microchip/xc8/v2.10/avr/bin"
 MP_LD_DIR="/opt/microchip/xc8/v2.10/avr/bin"
 MP_AR_DIR="/opt/microchip/xc8/v2.10/avr/bin"
 # MP_BC_DIR is not defined
+DFP_DIR="/opt/microchip/mplabx/v5.35/packs/Microchip/ATmega_DFP/2.1.87"
