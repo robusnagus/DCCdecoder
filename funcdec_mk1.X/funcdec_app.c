@@ -50,42 +50,42 @@ void APP_UpdateFuncOut(void)
     uint8_t dimEn = 0;
     
     if (dimOuts & 0x01) {
-        BOARD_PWMA_SetDutyCycle(0xFC - (CV_GetValue(CV049_Dim_A) << 2));
+        BOARD_PWMA_SetDutyCycle(CV_GetValue(CV049_Dim_A) << 2);
         dimEn |= BOARD_PWMA_ENABLE;
     }
     else
         BOARD_AUXDA_Off();
     
     if (dimOuts & 0x02) {
-        BOARD_PWMB_SetDutyCycle(0xFC - (CV_GetValue(CV050_Dim_B) << 2));
+        BOARD_PWMB_SetDutyCycle(CV_GetValue(CV050_Dim_B) << 2);
         dimEn |= BOARD_PWMB_ENABLE;
     }
     else
         BOARD_AUXDB_Off();
     
     if (dimOuts & 0x04) {      
-        BOARD_PWMC_SetDutyCycle(0xFC - (CV_GetValue(CV051_Dim_C) << 2));
+        BOARD_PWMC_SetDutyCycle(CV_GetValue(CV051_Dim_C) << 2);
         dimEn |= BOARD_PWMC_ENABLE;
     }
     else
         BOARD_AUXDC_Off();
     
     if (dimOuts & 0x08) {
-        BOARD_PWMD_SetDutyCycle(0xFC - (CV_GetValue(CV052_Dim_D) << 2));
+        BOARD_PWMD_SetDutyCycle(CV_GetValue(CV052_Dim_D) << 2);
         dimEn |= BOARD_PWMD_ENABLE;
     }
     else
         BOARD_AUXDD_Off();
     
     if (dimOuts & 0x10) {
-        BOARD_PWME_SetDutyCycle(0xFC - (CV_GetValue(CV053_Dim_E) << 2));
+        BOARD_PWME_SetDutyCycle(CV_GetValue(CV053_Dim_E) << 2);
         dimEn |= BOARD_PWME_ENABLE;
     }
     else
         BOARD_AUXDE_Off();
     
     if (dimOuts & 0x20) {
-        BOARD_PWMF_SetDutyCycle(0xFC - (CV_GetValue(CV054_Dim_F) << 2));
+        BOARD_PWMF_SetDutyCycle(CV_GetValue(CV054_Dim_F) << 2);
         dimEn |= BOARD_PWMF_ENABLE;
     }
     else

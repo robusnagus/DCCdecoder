@@ -28,28 +28,28 @@
 // AUXD_E AUXD_F    PB1 PB0
 
 #define BOARD_AUXDA                 0
-#define BOARD_AUXDA_On()            PORTB.OUTCLR = (1 << PIN2_bp)
-#define BOARD_AUXDA_Off()           PORTB.OUTSET = (1 << PIN2_bp)
+#define BOARD_AUXDA_On()            PORTB.OUTSET = (1 << PIN2_bp)
+#define BOARD_AUXDA_Off()           PORTB.OUTCLR = (1 << PIN2_bp)
 #define BOARD_AUXDA_Toggle()        PORTB.OUTTGL = (1 << PIN2_bp)
 #define BOARD_AUXDB                 1
-#define BOARD_AUXDB_On()            PORTA.OUTCLR = (1 << PIN5_bp)
-#define BOARD_AUXDB_Off()           PORTA.OUTSET = (1 << PIN5_bp)
+#define BOARD_AUXDB_On()            PORTA.OUTSET = (1 << PIN5_bp)
+#define BOARD_AUXDB_Off()           PORTA.OUTCLR = (1 << PIN5_bp)
 #define BOARD_AUXDB_Toggle()        PORTA.OUTTGL = (1 << PIN5_bp)
 #define BOARD_AUXDC                 2
-#define BOARD_AUXDC_On()            PORTA.OUTCLR = (1 << PIN4_bp)
-#define BOARD_AUXDC_Off()           PORTA.OUTSET = (1 << PIN4_bp)
+#define BOARD_AUXDC_On()            PORTA.OUTSET = (1 << PIN4_bp)
+#define BOARD_AUXDC_Off()           PORTA.OUTCLR = (1 << PIN4_bp)
 #define BOARD_AUXDC_Toggle()        PORTA.OUTTGL = (1 << PIN4_bp)
 #define BOARD_AUXDD                 3
-#define BOARD_AUXDD_On()            PORTA.OUTCLR = (1 << PIN3_bp)
-#define BOARD_AUXDD_Off()           PORTA.OUTSET = (1 << PIN3_bp)
+#define BOARD_AUXDD_On()            PORTA.OUTSET = (1 << PIN3_bp)
+#define BOARD_AUXDD_Off()           PORTA.OUTCLR = (1 << PIN3_bp)
 #define BOARD_AUXDD_Toggle()        PORTA.OUTTGL = (1 << PIN3_bp)
 #define BOARD_AUXDE                 4
-#define BOARD_AUXDE_On()            PORTB.OUTCLR = (1 << PIN1_bp)
-#define BOARD_AUXDE_Off()           PORTB.OUTSET = (1 << PIN1_bp)
+#define BOARD_AUXDE_On()            PORTB.OUTSET = (1 << PIN1_bp)
+#define BOARD_AUXDE_Off()           PORTB.OUTCLR = (1 << PIN1_bp)
 #define BOARD_AUXDE_Toggle()        PORTB.OUTTGL = (1 << PIN1_bp)
 #define BOARD_AUXDF                 5
-#define BOARD_AUXDF_On()            PORTB.OUTCLR = (1 << PIN0_bp)
-#define BOARD_AUXDF_Off()           PORTB.OUTSET = (1 << PIN0_bp)
+#define BOARD_AUXDF_On()            PORTB.OUTSET = (1 << PIN0_bp)
+#define BOARD_AUXDF_Off()           PORTB.OUTCLR = (1 << PIN0_bp)
 #define BOARD_AUXDF_Toggle()        PORTB.OUTTGL = (1 << PIN0_bp)
 
 #define BOARD_OUTACK_On()           PORTA.OUTSET = (1 << PIN6_bp)
