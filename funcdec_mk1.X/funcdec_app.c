@@ -182,23 +182,12 @@ void APP_SetAck(void)
     
 } // APP_SetAck
 
-// cykliczna aktualizacja stanu wyjść
+// aktualizacja stanu wyjść - regularna
 // param: brak
 // zwrot: brak
 void APP_UpdateOutput(void)
 {
-	static uint16_t blinkHB = 0;
-    blinkHB++;
-    if (blinkHB == 1) {
-        BOARD_LEDHB_On();
-    }
-    else if (blinkHB == 500) {
-        BOARD_LEDHB_Off();
-    }
-    else if (blinkHB > 1000) {
-        blinkHB = 0;
-    }
-    
+    // nie zaimplementowano
 } // APP_UpdateOutput
 
 extern void DCCREC_Init(void);
@@ -220,11 +209,11 @@ void APP_Initialize(void)
     BOARD_AUXDD_Off();
     BOARD_AUXDE_Off();
     BOARD_AUXDF_Off();
-    BOARD_PWM_Enable(0x00);
+    BOARD_PWM_Enable(BOARD_PWM_NONE);
     
 } // APP_Initialize
 
-// wykonanie akcji cyklicznych
+// zadania aplikacji - regularne
 // param: brak
 // zwrot: brak
 void APP_TickExec(void)
@@ -232,14 +221,14 @@ void APP_TickExec(void)
     APP_UpdateOutput();
 }
 
-// wykonanie akcji
+// zadania aplikacji - ciągłe
 // param: brak
 // zwrot: brak
 void APP_Execute(void)
 {
     if (dccPktLen) {
         if ((dccPktBuf[0] == 0xFF) && (dccPktBuf[1] == 0x00)) {
-            // idle - zignoruj
+            // idle packet - ignore
             dccPktLen = 0;
             return;
         }
