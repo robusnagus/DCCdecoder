@@ -1,8 +1,13 @@
 //
-// Project: DCC decoder proto M3208
-// File:    dec08_recv.c
-// Author:  Nagus
-// Version: 20200107
+// DCC function decoder prototype
+//
+// Copyright 2020 Robert Nagowski
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// See gpl-3.0.md file for details.
 //
 
 #include "dec08_board.h"

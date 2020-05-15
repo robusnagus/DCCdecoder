@@ -1,8 +1,13 @@
 //
-// Project: DCC decoder proto M3208
-// File:    dec08_board.h
-// Author:  Nagus
-// Version: 20200108
+// DCC function decoder prototype
+//
+// Copyright 2020 Robert Nagowski
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// See gpl-3.0.md file for details.
 //
 
 #ifndef DEC08_BOARD_H
@@ -14,47 +19,62 @@
 #include "dec08_config.h"
 
 // DCCIN            PA3
-// AUX1 AUX2        PD2 PD3
-// AUX3 AUX4        PD4 PD5
-// AUX_FL AUX_RL    PA7 PA6
-// OUT_ACK OUT_HB   PF2 PF5
-// PWM1 PWM2        PF0 PF1
-// PWM3 PWM4        PF3 PF4
+// OUT_ACK OUT_HB   PA2 PA7
+// AUXD_A AUXD_B    PF0 PF1
+// AUXD_C AUXD_D    PF2 PF3
+// AUXD_E AUXD_F    PF4 PF5
 // UART TX RX       PA0 PA1
 
-#define BOARD_AUXFL_On()            PORTA.OUTCLR = (1 << PIN7_bp)
-#define BOARD_AUXFL_Off()           PORTA.OUTSET = (1 << PIN7_bp)
-#define BOARD_AUXFL_Toggle()        PORTA.OUTTGL = (1 << PIN7_bp)
-#define BOARD_AUXRL_On()            PORTA.OUTCLR = (1 << PIN6_bp)
-#define BOARD_AUXRL_Off()           PORTA.OUTSET = (1 << PIN6_bp)
-#define BOARD_AUXRL_Toggle()        PORTA.OUTTGL = (1 << PIN6_bp)
-#define BOARD_AUX01_On()            PORTD.OUTCLR = (1 << PIN2_bp)
-#define BOARD_AUX01_Off()           PORTD.OUTSET = (1 << PIN2_bp)
-#define BOARD_AUX01_Toggle()        PORTD.OUTTGL = (1 << PIN2_bp)
-#define BOARD_AUX02_On()            PORTD.OUTCLR = (1 << PIN3_bp)
-#define BOARD_AUX02_Off()           PORTD.OUTSET = (1 << PIN3_bp)
-#define BOARD_AUX02_Toggle()        PORTD.OUTTGL = (1 << PIN3_bp)
-#define BOARD_AUX03_On()            PORTD.OUTCLR = (1 << PIN4_bp)
-#define BOARD_AUX03_Off()           PORTD.OUTSET = (1 << PIN4_bp)
-#define BOARD_AUX03_Toggle()        PORTD.OUTTGL = (1 << PIN4_bp)
-#define BOARD_AUX04_On()            PORTD.OUTCLR = (1 << PIN5_bp)
-#define BOARD_AUX04_Off()           PORTD.OUTSET = (1 << PIN5_bp)
-#define BOARD_AUX04_Toggle()        PORTD.OUTTGL = (1 << PIN5_bp)
-#define BOARD_OUTACK_On()           PORTF.OUTSET = (1 << PIN2_bp)
-#define BOARD_OUTACK_Off()          PORTF.OUTCLR = (1 << PIN2_bp)
-#define BOARD_OUTACK_Toggle()       PORTF.OUTTGL = (1 << PIN2_bp)
-#define BOARD_LEDHB_On()            PORTF.OUTCLR = (1 << PIN5_bp)
-#define BOARD_LEDHB_Off()           PORTF.OUTSET = (1 << PIN5_bp)
-#define BOARD_LEDHB_Toggle()        PORTF.OUTTGL = (1 << PIN5_bp)
+#define BOARD_AUXDA                 0
+#define BOARD_AUXDA_On()            PORTF.OUTCLR = (1 << PIN0_bp)
+#define BOARD_AUXDA_Off()           PORTF.OUTSET = (1 << PIN0_bp)
+#define BOARD_AUXDA_Toggle()        PORTF.OUTTGL = (1 << PIN0_bp)
+#define BOARD_AUXDB                 1
+#define BOARD_AUXDB_On()            PORTF.OUTCLR = (1 << PIN1_bp)
+#define BOARD_AUXDB_Off()           PORTF.OUTSET = (1 << PIN1_bp)
+#define BOARD_AUXDB_Toggle()        PORTF.OUTTGL = (1 << PIN1_bp)
+#define BOARD_AUXDC                 2
+#define BOARD_AUXDC_On()            PORTF.OUTCLR = (1 << PIN2_bp)
+#define BOARD_AUXDC_Off()           PORTF.OUTSET = (1 << PIN2_bp)
+#define BOARD_AUXDC_Toggle()        PORTF.OUTTGL = (1 << PIN2_bp)
+#define BOARD_AUXDD                 3
+#define BOARD_AUXDD_On()            PORTF.OUTCLR = (1 << PIN3_bp)
+#define BOARD_AUXDD_Off()           PORTF.OUTSET = (1 << PIN3_bp)
+#define BOARD_AUXDD_Toggle()        PORTF.OUTTGL = (1 << PIN3_bp)
+#define BOARD_AUXDE                 4
+#define BOARD_AUXDE_On()            PORTF.OUTCLR = (1 << PIN4_bp)
+#define BOARD_AUXDE_Off()           PORTF.OUTSET = (1 << PIN4_bp)
+#define BOARD_AUXDE_Toggle()        PORTF.OUTTGL = (1 << PIN4_bp)
+#define BOARD_AUXDF                 5
+#define BOARD_AUXDF_On()            PORTF.OUTCLR = (1 << PIN5_bp)
+#define BOARD_AUXDF_Off()           PORTF.OUTSET = (1 << PIN5_bp)
+#define BOARD_AUXDF_Toggle()        PORTF.OUTTGL = (1 << PIN5_bp)
+
+#define BOARD_OUTACK_On()           PORTA.OUTSET = (1 << PIN2_bp)
+#define BOARD_OUTACK_Off()          PORTA.OUTCLR = (1 << PIN2_bp)
+#define BOARD_OUTACK_Toggle()       PORTA.OUTTGL = (1 << PIN2_bp)
+#define BOARD_LEDHB_On()            PORTA.OUTCLR = (1 << PIN7_bp)
+#define BOARD_LEDHB_Off()           PORTA.OUTSET = (1 << PIN7_bp)
+#define BOARD_LEDHB_Toggle()        PORTA.OUTTGL = (1 << PIN7_bp)
 
 #define BOARD_DCCREC_Handler()      ISR(TCB0_INT_vect)
 #define BOARD_DCCREC_SetReady()     TCB0.INTFLAGS = (1 << TCB_CAPT_bp)
 #define BOARD_DCCREC_GetBitTime()   TCB0.CCMP
 
-#define BOARD_PWM0_SetDutyCycle(x)  TCA0.SPLIT.HCMP0 = x
-#define BOARD_PWM1_SetDutyCycle(x)  TCA0.SPLIT.HCMP1 = x
-#define BOARD_PWM3_SetDutyCycle(x)  TCA0.SPLIT.LCMP0 = x
-#define BOARD_PWM4_SetDutyCycle(x)  TCA0.SPLIT.LCMP1 = x
+#define BOARD_PWM_Enable(x)         TCA0.SPLIT.CTRLB = x
+#define BOARD_PWM_NONE              0x00
+#define BOARD_PWMA_ENABLE           (1 << TCA_SPLIT_LCMP0EN_bp)
+#define BOARD_PWMB_ENABLE           (1 << TCA_SPLIT_LCMP1EN_bp)
+#define BOARD_PWMC_ENABLE           (1 << TCA_SPLIT_LCMP2EN_bp)
+#define BOARD_PWMD_ENABLE           (1 << TCA_SPLIT_HCMP0EN_bp)
+#define BOARD_PWME_ENABLE           (1 << TCA_SPLIT_HCMP1EN_bp)
+#define BOARD_PWMF_ENABLE           (1 << TCA_SPLIT_HCMP2EN_bp)
+#define BOARD_PWMA_SetDutyCycle(x)  TCA0.SPLIT.LCMP0 = x
+#define BOARD_PWMB_SetDutyCycle(x)  TCA0.SPLIT.LCMP1 = x
+#define BOARD_PWMC_SetDutyCycle(x)  TCA0.SPLIT.LCMP2 = x
+#define BOARD_PWMD_SetDutyCycle(x)  TCA0.SPLIT.HCMP0 = x
+#define BOARD_PWME_SetDutyCycle(x)  TCA0.SPLIT.HCMP1 = x
+#define BOARD_PWMF_SetDutyCycle(x)  TCA0.SPLIT.HCMP2 = x
 
 #define BOARD_SERIAL_RXHandler()    ISR(USART0_RXC_vect)
 #define BOARD_SERIAL_TXHandler()    ISR(USART0_DRE_vect)

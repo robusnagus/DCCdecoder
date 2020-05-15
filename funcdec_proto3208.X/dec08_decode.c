@@ -1,18 +1,32 @@
 //
-// Project: DCC decoder proto M3208
-// File:    dec08_decode.c
-// Author:  Nagus
-// Version: 20200323
+// DCC function decoder prototype
+//
+// Copyright 2020 Robert Nagowski
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// See gpl-3.0.md file for details.
 //
 
+#include <avr/eeprom.h>
 #include <stdio.h>
 #include <string.h>
 
 #include "dec08_board.h"
 #include "dec08_cvman.h"
 
+#define DECCFG_DIRREV           0x01
+#define DECCFG_FLFUNCG          0x02
+#define DECCFG_BIDICOM          0x08
+#define DECCFG_LONGADDR         0x20
+#define DECCFG_MASK             0x2B
+
 #define DCC_TYPE_MASK           0xE0
 #define DCC_TYPE_ADVOPER        0x20
+#define DCC_TYPE_REVSPEED       0x40
+#define DCC_TYPE_FWDSPEED       0x60
 #define DCC_TYPE_FUNCTION1      0x80
 #define DCC_TYPE_FUNCTION2      0xA0
 #define DCC_TYPE_CONFVAR        0xE0       
@@ -29,6 +43,8 @@
 #define DEC_STAT_RUNNING        0x00
 
 uint8_t dccPacket[CFG_DCCR_PKTMAXLEN];
+extern uint8_t dccPktBuf[CFG_DCCR_PKTMAXLEN];
+extern uint8_t dccPktLen;
 
 uint8_t decAddr;
 uint8_t decAddrH;
@@ -39,23 +55,108 @@ uint8_t decState;
 uint8_t cvWrPkt[3];
 uint8_t cvWrCnt;
 
+uint8_t decConfig[CFG_DCCD_CVMAX] EEMEM;
+
 extern char logStr[128];
 
+uint8_t        CV_GetValue(uint8_t cv);
+void           CV_SetValue(uint8_t cv, uint8_t value);
+extern void    CV_RestoreDefault(uint8_t *config);
+extern uint8_t CV_validate(uint8_t cv, uint8_t value);
+
+uint8_t DCC_CheckPacket(void);
 void DCC_DecoderInit(void);
 void DCC_DecodePacket(void);
 void DCC_AdvOperation(uint8_t idx);
 void DCC_LongService(uint8_t idx);
+void DCC_RestoreDefault(void);
+
 extern void APP_Initialize(void);
 extern void APP_SetAck(void);
-extern void APP_UpdateFuncFL(uint8_t value);
+extern void APP_UpdateFuncDir(uint8_t value);
 extern void APP_UpdateFuncG1(uint8_t value);
+extern void APP_UpdateFuncG2(uint8_t value);
+
+uint8_t CV_GetValue(uint8_t cv)
+{
+    if (cv < CFG_DCCD_CVMAX) {
+        eeprom_busy_wait();
+        return eeprom_read_byte(&(decConfig[cv]));
+    }   
+    return 0xFF;
+    
+} // CV_GetValue
+
+void CV_SetValue(uint8_t cv, uint8_t value)
+{
+    if (cv >= CFG_DCCD_CVMAX) {
+        return;
+    }
+    
+    // parametry standardowe
+    if (cv == CV001_DecAddr) {
+        if ((value < 1) || (value > 127))
+            value = CVDEF_DecAddr;
+            decAddr = value;
+    } 
+    else if (cv == CV007_Version) {
+        return;
+    }
+    else if (cv == CV008_ManfID) {
+        if (value == 32)
+            DCC_RestoreDefault();
+        return;
+    }
+    else if (cv == CV017_DecAddrH) {
+        if ((value < 192) && (value > 232))
+            value = CVDEF_DecAddrH;
+        decAddrH = value;
+    }
+    else if (cv == CV018_DecAddrL) {
+        decAddrL = value;
+    }
+    else if (cv == CV029_Config) {
+        value = value & DECCFG_MASK;
+        decConf = value;
+    }
+    else {
+        value = CV_validate(cv, value);
+    }
+    
+    eeprom_busy_wait();
+    eeprom_write_byte(&(decConfig[cv]), value);
+
+} // CV_SetValue
+
+void DCC_RestoreDefault(void)
+{
+    CV_RestoreDefault(decConfig);
+    
+    decAddr  = CVDEF_DecAddr;
+    decAddrH = CVDEF_DecAddrH;
+    decAddrL = CVDEF_DecAddrL;
+    decConf  = CVDEF_Config;
+    
+} // DCC_RestoreDefault
+
+uint8_t DCC_CheckPacket(void)
+{
+    uint8_t idx;
+    uint8_t sum = 0;
+    for (idx = 0; idx < dccPktLen; idx++) {
+        dccPacket[idx] = dccPktBuf[idx];
+        sum = sum ^ dccPktBuf[idx];
+    }
+    return sum;
+    
+} // DCC_CheckPacket
 
 void DCC_AdvOperation(uint8_t idx)
 {
     uint8_t arg = dccPacket[idx + 1]; 
     switch (dccPacket[idx] & DCC_AOPER_MASK) {
         case DCC_AOPER_128SPD:
-            APP_UpdateFuncFL(arg & 0x80);
+            APP_UpdateFuncDir(arg & 0x80);
             break;
         default:
             break;
@@ -193,11 +294,23 @@ void DCC_DecodePacket(void)
         case DCC_TYPE_ADVOPER:
             DCC_AdvOperation(idx);
             break;
-        case DCC_TYPE_FUNCTION1:
-            APP_UpdateFuncG1(dccPacket[idx] & 0x1F);
+        case DCC_TYPE_REVSPEED:
+            APP_UpdateFuncDir(0x00);
             break;
+        case DCC_TYPE_FWDSPEED:
+            APP_UpdateFuncDir(0x80);
+            break;    
+        case DCC_TYPE_FUNCTION1:
+            if (decConf & DECCFG_FLFUNCG)
+                APP_UpdateFuncG1(dccPacket[idx] & 0x1F);
+            else
+                APP_UpdateFuncG1(dccPacket[idx] & 0x0F);
+            break;
+        case DCC_TYPE_FUNCTION2:
+            APP_UpdateFuncG2(dccPacket[idx] & 0x1F);
+            break;    
         case DCC_TYPE_CONFVAR:
-            //if ((dccPacket[idx] & 0x10) == 0)
+            if ((dccPacket[idx] & 0x10) == 0)
                 DCC_LongService(idx);
             break;
         default:
@@ -213,16 +326,12 @@ void DCC_DecoderInit(void)
     SERIAL_SendString("Decoder init\r\n");
     decAddr  = CV_GetValue(CV001_DecAddr);
     if (decAddr == 0xFF) {
-        CV_RestoreDefault();
+        CV_RestoreDefault(decConfig);
     }
     else {
         decAddrH = CV_GetValue(CV017_DecAddrH);
         decAddrL = CV_GetValue(CV018_DecAddrL);
-        decConf  = CV_GetValue(CV029_Config);
-        BOARD_PWM0_SetDutyCycle(CV_GetValue(CV047_DimComp));
-        BOARD_PWM1_SetDutyCycle(CV_GetValue(CV048_DimAisle)); 
-        //BOARD_PWM3_SetDutyCycle(CV_GetValue(CV049_DimToil));
-        BOARD_PWM4_SetDutyCycle(CV_GetValue(CV050_DimTrEnd));        
+        decConf  = CV_GetValue(CV029_Config);    
     }
    
 } // DCC_DecoderInit

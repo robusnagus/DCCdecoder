@@ -1,8 +1,13 @@
 //
-// Project: DCC decoder proto M3208
-// File:    dec08_main.c
-// Author:  Nagus
-// Version: 20200111
+// DCC function decoder prototype
+//
+// Copyright 2020 Robert Nagowski
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// See gpl-3.0.md file for details.
 //
 
 #include "dec08_board.h"
@@ -10,7 +15,8 @@
 static uint32_t uwTick;
 
 extern void APP_Initialize(void);
-extern void APP_Tasks(void);
+extern void APP_TickExec(void);
+extern void APP_Execute(void);
 
 void BOARD_MCU_Init(void);
 void BOARD_Clock_Init(void);
@@ -18,8 +24,6 @@ void BOARD_GPIO_Init(void);
 void BOARD_TimB0_Init(void);
 void BOARD_PWM_Init(void);
 void BOARD_UART_Init(void);
-
-uint32_t SYS_GetTick(void);
 
 void BOARD_MCU_Init(void)
 {
@@ -65,27 +69,10 @@ void BOARD_Clock_Init(void)
 
 void BOARD_GPIO_Init(void)
 {
-    // AUX1-4           PD2 PD3 PD4 PD5 
-    PORTD.DIRSET = ((1 << PIN5_bp) | (1 << PIN4_bp) |
-                    (1 << PIN3_bp) | (1 << PIN2_bp));
-    *((uint8_t *)&PORTD + 0x15) = 0x00;
-    *((uint8_t *)&PORTD + 0x14) = 0x00;
-    *((uint8_t *)&PORTD + 0x13) = 0x00;
-    *((uint8_t *)&PORTD + 0x12) = 0x00;
-    BOARD_AUX01_Off();
-    BOARD_AUX02_Off();
-    BOARD_AUX03_Off();
-    BOARD_AUX04_Off();        
-    // AUX_FL AUX_RL    PA7 PA6
-    PORTA.DIRSET = ((1 << PIN7_bp) | (1 << PIN6_bp));
+    // OUT_ACK OUT_HB   PA2 PA7
+    PORTA.DIRSET = ((1 << PIN2_bp) | (1 << PIN7_bp));
+    *((uint8_t *)&PORTA + 0x12) = 0x00;
     *((uint8_t *)&PORTA + 0x17) = 0x00;
-    *((uint8_t *)&PORTA + 0x16) = 0x00;
-    BOARD_AUXFL_Off();
-    BOARD_AUXRL_Off();
-    // OUT_ACK OUT_HB   PF2 PF5
-    PORTF.DIRSET = ((1 << PIN5_bp) | (1 << PIN2_bp));
-    *((uint8_t *)&PORTF + 0x15) = 0x00;
-    *((uint8_t *)&PORTF + 0x12) = 0x00;
     BOARD_OUTACK_Off();
     BOARD_LEDHB_Off();
     
@@ -114,28 +101,30 @@ void BOARD_TimB0_Init(void)
 
 void BOARD_PWM_Init(void)
 {
-    // PWM out: PF0 PF1 PF3 PF4
+    // PWM out: PF0 PF1 PF2 PF3 PF4 PF5
     PORTMUX.TCAROUTEA = PORTMUX_TCA0_PORTF_gc;
     PORTF.DIRSET = ((1 << PIN0_bp) | (1 << PIN1_bp) |
-                    (1 << PIN3_bp) | (1 << PIN4_bp));
+                    (1 << PIN2_bp) | (1 << PIN3_bp) |
+                    (1 << PIN4_bp) | (1 << PIN5_bp));
     *((uint8_t *)&PORTF + 0x10) = 0x00;
     *((uint8_t *)&PORTF + 0x11) = 0x00;
+    *((uint8_t *)&PORTF + 0x12) = 0x00;
     *((uint8_t *)&PORTF + 0x13) = 0x00;
     *((uint8_t *)&PORTF + 0x14) = 0x00;
+    *((uint8_t *)&PORTF + 0x15) = 0x00;
     
     TCA0.SPLIT.CTRLD    = (1 << TCA_SPLIT_SPLITM_bp);
     TCA0.SPLIT.HPER     = 0xFF;
     TCA0.SPLIT.LPER     = 0xFF;
     TCA0.SPLIT.HCMP0    = 0x10;
-    TCA0.SPLIT.LCMP0    = 0x20;
-    TCA0.SPLIT.HCMP1    = 0x30;
-    TCA0.SPLIT.LCMP1    = 0x40;
-    TCA0.SPLIT.HCNT     = 0xC0;
+    TCA0.SPLIT.LCMP0    = 0x30;
+    TCA0.SPLIT.HCMP1    = 0x50;
+    TCA0.SPLIT.LCMP1    = 0x70;
+    TCA0.SPLIT.HCMP2    = 0x90;
+    TCA0.SPLIT.LCMP2    = 0xB0;
+    TCA0.SPLIT.HCNT     = 0x00;
     TCA0.SPLIT.LCNT     = 0x00;
-    TCA0.SPLIT.CTRLB    = ((1 << TCA_SPLIT_HCMP0EN_bp) | 
-                           (1 << TCA_SPLIT_HCMP1EN_bp) |
-                           (1 << TCA_SPLIT_LCMP0EN_bp) | 
-                           (1 << TCA_SPLIT_LCMP1EN_bp));
+    TCA0.SPLIT.CTRLB    = 0x00;     // default: OFF
     TCA0.SPLIT.CTRLA    = TCA_SPLIT_CLKSEL_DIV4_gc | (1 << TCA_SPLIT_ENABLE_bp);
     
 } // BOARD_PWM_Init
@@ -176,9 +165,14 @@ int main(void)
 	CPUINT.LVL1VEC = 0x00;
 	SYS_EnableInterrupts();
     
-    // główna pętla
+    static uint32_t lastTick = 0;
+    // main loop
     while (1) {
-        APP_Tasks();
+        if (lastTick != uwTick) {
+            APP_TickExec();
+            lastTick = uwTick;
+        }
+		APP_Execute();
     }
 
     return 0;

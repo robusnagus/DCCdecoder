@@ -1,49 +1,53 @@
 //
-// Project: DCC decoder proto M3208
-// File:    dec08_cvman.c
-// Author:  Nagus
-// Version: 20200118
+// DCC function decoder prototype
+//
+// Copyright 2020 Robert Nagowski
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// See gpl-3.0.md file for details.
 //
 
+#include <avr/io.h>
 #include <avr/eeprom.h>
 
 #include "dec08_board.h"
 #include "dec08_cvman.h"
 
-extern uint8_t decAddr;
-extern uint8_t decAddrH;
-extern uint8_t decAddrL;
-extern uint8_t decConf;
+void CV_RestoreDefault(uint8_t *config);
+uint8_t CV_validate(uint8_t cv, uint8_t value);
 
-const uint8_t defaultConfig[] = {
+const uint8_t defaultConfig[CFG_DCCD_CVMAX] = {
     // 1
-    DEF_DecAddr, 0xFF, 0xFF, 0xFF,
+    CVDEF_DecAddr, 0xFF, 0xFF, 0xFF,
     // 5
-    0xFF, 0xFF, DEF_Version, DEF_ManfID,
+    0xFF, 0xFF, CVDEF_Version, CVDEF_ManfID,
     // 9
     0xFF, 0xFF, 0xFF, 0xFF,
     // 13
     0xFF, 0xFF, 0xFF, 0xFF,
     // 17
-    DEF_DecAddrH, DEF_DecAddrL, 0xFF, 0xFF,
+    CVDEF_DecAddrH, CVDEF_DecAddrL, 0xFF, 0xFF,
     // 21
     0xFF, 0xFF, 0xFF, 0xFF,
     // 25
     0xFF, 0xFF, 0xFF, 0xFF,
     // 29
-    DEF_Config, 0xFF, 0xFF, 0xFF,
+    CVDEF_Config, 0xFF, 0xFF, 0xFF,
     // 33
-    DEF_FMapComp1, DEF_FMapComp2, DEF_FMapAisle1, DEF_FMapAisle2,
+    CVDEF_FuncMap_A1, CVDEF_FuncMap_A2, CVDEF_FuncMap_B1, CVDEF_FuncMap_B2,
     // 37
-    DEF_FMapToil1, DEF_FMapToil2, DEF_FMapTrEnd1, DEF_FMapTrEnd2,
+    CVDEF_FuncMap_C1, CVDEF_FuncMap_C2, CVDEF_FuncMap_D1, CVDEF_FuncMap_D2,
     // 41
-    DEF_FCompRand1, DEF_FCompRand2, 0xFF, 0xFF,
+    CVDEF_FuncMap_E1, CVDEF_FuncMap_E2, CVDEF_FuncMap_F1, CVDEF_FuncMap_F2,
     // 45
-    0xFF, 0xFF, DEF_DimComp, DEF_DimAisle,
+    CVDEF_Deactiv_F1, CVDEF_Deactiv_F2, CVDEF_Deactiv_R1, CVDEF_Deactiv_R2,
     // 49
-    DEF_DimToil, DEF_DimTrEnd, 0xFF, 0xFF,
+    CVDEF_Dim_X, CVDEF_Dim_X, CVDEF_Dim_X, CVDEF_Dim_X,
     // 53
-    0xFF, 0xFF, 0xFF, 0xFF,
+    CVDEF_Dim_X, CVDEF_Dim_X, 0xFF, 0xFF,
     // 57
     0xFF, 0xFF, 0xFF, 0xFF,
     // 61
@@ -51,86 +55,32 @@ const uint8_t defaultConfig[] = {
     
 }; // defaultConfig
 
-uint8_t decConfig[CFG_DCCD_CVMAX] EEMEM;
-
-void CV_RestoreDefault(void)
-{   
+// przywrócenie domyślnej konfiguracji
+// param: brak
+// zwrot: brak
+void CV_RestoreDefault(uint8_t *config)
+{
     uint8_t idx;
     for (idx = 0; idx < CFG_DCCD_CVMAX; idx++) {
         eeprom_busy_wait();
-        eeprom_write_byte(&(decConfig[idx]), defaultConfig[idx]);
+        eeprom_write_byte(&(config[idx]), defaultConfig[idx]);
     }
-    decAddr  = DEF_DecAddr;
-    decAddrH = DEF_DecAddrH;
-    decAddrL = DEF_DecAddrL;
-    decConf  = DEF_Config;
-
+    
 } // CV_RestoreDefault
 
-uint8_t CV_GetValue(uint8_t cv)
+// sprawdzenie zawartości CV (użytkownika)
+// cv:    cv do sprawdzenia
+// value: proponowana wartość
+// zwrot: prawidłowo wartość, skorygowana w razie potrzeby
+uint8_t CV_validate(uint8_t cv, uint8_t value)
 {
-    if (cv < CFG_DCCD_CVMAX) {
-        eeprom_busy_wait();
-        return eeprom_read_byte(&(decConfig[cv]));
-    }   
-    return 0;
-    
-} // CV_GetValue
-
-void CV_SetValue(uint8_t cv, uint8_t value)
-{
-    if (cv >= CFG_DCCD_CVMAX) {
-        return;
+    if ((cv >= CV049_Dim_A) && (cv <= CV054_Dim_F)) {
+        if (value > 63)
+            value = 63;
     }
-        
-    // sprawdzenie zawartości
-    switch (cv) {
-        case CV001_DecAddr:
-            if ((value < 1) || (value > 127))
-                value = DEF_DecAddr;
-            decAddr = value;
-            break;
-        case CV007_Version:
-            return;
-        case CV008_ManfID:
-            if (value == 32)
-                CV_RestoreDefault();
-            return;
-        case CV017_DecAddrH:
-            if ((value < 192) && (value > 232))
-                value = DEF_DecAddrH;
-            decAddrH = value;
-            break;
-        case CV018_DecAddrL:
-            decAddrL = value;
-            break;
-        case CV029_Config:
-            value = value & DECCFG_MASK;
-            decConf = value;
-            break;
-        case CV047_DimComp:
-            if ((value > 63) || (value == 0))
-                value = 63;
-            break;
-        case CV048_DimAisle:
-            if ((value > 63) || (value == 0))
-                value = 63;
-            break;
-        case CV049_DimToil:
-            if ((value > 63) || (value == 0))
-                value = 63;
-            break;
-        case CV050_DimTrEnd:
-            if ((value > 63) || (value == 0))
-                value = 63;
-            break;
-        default: // nie podlega weryfikacji
-            break;
-    } // switch cv
     
-    eeprom_busy_wait();
-    eeprom_write_byte(&(decConfig[cv]), value);
+    return value;
     
-} // CV_SetValue
+} // CV_validate
 
 // EOF dec08_cvman.c
