@@ -32,7 +32,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>ATmega3208</targetDevice>
+        <targetDevice>ATtiny1614</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>snap</platformTool>
@@ -41,7 +41,7 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="ATmega_DFP" vendor="Microchip" version="2.1.87"/>
+        <pack name="ATtiny_DFP" vendor="Microchip" version="2.1.63"/>
       </packs>
       <compileType>
         <linkerTool>

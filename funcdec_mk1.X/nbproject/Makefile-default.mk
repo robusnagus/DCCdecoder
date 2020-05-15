@@ -71,7 +71,7 @@ SOURCEFILES=funcdec_main.c funcdec_recv.c funcdec_decode.c funcdec_app.c funcdec
 
 # Pack Options 
 PACK_COMPILER_OPTIONS=-I ${DFP_DIR}/include
-PACK_COMMON_OPTIONS=-B ${DFP_DIR}/avr-gcc/dev/atmega3208
+PACK_COMMON_OPTIONS=-B ${DFP_DIR}/avr-gcc/dev/attiny1614
 
 
 
@@ -94,7 +94,7 @@ ifneq ($(INFORMATION_MESSAGE), )
 endif
 	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
-MP_PROCESSOR_OPTION=ATmega3208
+MP_PROCESSOR_OPTION=ATtiny1614
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
@@ -114,62 +114,62 @@ ${OBJECTDIR}/funcdec_main.o: funcdec_main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_main.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_main.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_main.o.d" -MT "${OBJECTDIR}/funcdec_main.o.d" -MT ${OBJECTDIR}/funcdec_main.o  -o ${OBJECTDIR}/funcdec_main.o funcdec_main.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_main.o.d" -MT "${OBJECTDIR}/funcdec_main.o.d" -MT ${OBJECTDIR}/funcdec_main.o  -o ${OBJECTDIR}/funcdec_main.o funcdec_main.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/funcdec_recv.o: funcdec_recv.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_recv.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_recv.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_recv.o.d" -MT "${OBJECTDIR}/funcdec_recv.o.d" -MT ${OBJECTDIR}/funcdec_recv.o  -o ${OBJECTDIR}/funcdec_recv.o funcdec_recv.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_recv.o.d" -MT "${OBJECTDIR}/funcdec_recv.o.d" -MT ${OBJECTDIR}/funcdec_recv.o  -o ${OBJECTDIR}/funcdec_recv.o funcdec_recv.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/funcdec_decode.o: funcdec_decode.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_decode.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_decode.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_decode.o.d" -MT "${OBJECTDIR}/funcdec_decode.o.d" -MT ${OBJECTDIR}/funcdec_decode.o  -o ${OBJECTDIR}/funcdec_decode.o funcdec_decode.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_decode.o.d" -MT "${OBJECTDIR}/funcdec_decode.o.d" -MT ${OBJECTDIR}/funcdec_decode.o  -o ${OBJECTDIR}/funcdec_decode.o funcdec_decode.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/funcdec_app.o: funcdec_app.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_app.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_app.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_app.o.d" -MT "${OBJECTDIR}/funcdec_app.o.d" -MT ${OBJECTDIR}/funcdec_app.o  -o ${OBJECTDIR}/funcdec_app.o funcdec_app.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_app.o.d" -MT "${OBJECTDIR}/funcdec_app.o.d" -MT ${OBJECTDIR}/funcdec_app.o  -o ${OBJECTDIR}/funcdec_app.o funcdec_app.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/funcdec_cvlist.o: funcdec_cvlist.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_cvlist.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_cvlist.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_cvlist.o.d" -MT "${OBJECTDIR}/funcdec_cvlist.o.d" -MT ${OBJECTDIR}/funcdec_cvlist.o  -o ${OBJECTDIR}/funcdec_cvlist.o funcdec_cvlist.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_cvlist.o.d" -MT "${OBJECTDIR}/funcdec_cvlist.o.d" -MT ${OBJECTDIR}/funcdec_cvlist.o  -o ${OBJECTDIR}/funcdec_cvlist.o funcdec_cvlist.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 else
 ${OBJECTDIR}/funcdec_main.o: funcdec_main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_main.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_main.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_main.o.d" -MT "${OBJECTDIR}/funcdec_main.o.d" -MT ${OBJECTDIR}/funcdec_main.o  -o ${OBJECTDIR}/funcdec_main.o funcdec_main.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_main.o.d" -MT "${OBJECTDIR}/funcdec_main.o.d" -MT ${OBJECTDIR}/funcdec_main.o  -o ${OBJECTDIR}/funcdec_main.o funcdec_main.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/funcdec_recv.o: funcdec_recv.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_recv.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_recv.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_recv.o.d" -MT "${OBJECTDIR}/funcdec_recv.o.d" -MT ${OBJECTDIR}/funcdec_recv.o  -o ${OBJECTDIR}/funcdec_recv.o funcdec_recv.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_recv.o.d" -MT "${OBJECTDIR}/funcdec_recv.o.d" -MT ${OBJECTDIR}/funcdec_recv.o  -o ${OBJECTDIR}/funcdec_recv.o funcdec_recv.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/funcdec_decode.o: funcdec_decode.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_decode.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_decode.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_decode.o.d" -MT "${OBJECTDIR}/funcdec_decode.o.d" -MT ${OBJECTDIR}/funcdec_decode.o  -o ${OBJECTDIR}/funcdec_decode.o funcdec_decode.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_decode.o.d" -MT "${OBJECTDIR}/funcdec_decode.o.d" -MT ${OBJECTDIR}/funcdec_decode.o  -o ${OBJECTDIR}/funcdec_decode.o funcdec_decode.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/funcdec_app.o: funcdec_app.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_app.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_app.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_app.o.d" -MT "${OBJECTDIR}/funcdec_app.o.d" -MT ${OBJECTDIR}/funcdec_app.o  -o ${OBJECTDIR}/funcdec_app.o funcdec_app.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_app.o.d" -MT "${OBJECTDIR}/funcdec_app.o.d" -MT ${OBJECTDIR}/funcdec_app.o  -o ${OBJECTDIR}/funcdec_app.o funcdec_app.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/funcdec_cvlist.o: funcdec_cvlist.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/funcdec_cvlist.o.d 
 	@${RM} ${OBJECTDIR}/funcdec_cvlist.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega3208 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_cvlist.o.d" -MT "${OBJECTDIR}/funcdec_cvlist.o.d" -MT ${OBJECTDIR}/funcdec_cvlist.o  -o ${OBJECTDIR}/funcdec_cvlist.o funcdec_cvlist.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=attiny1614 ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/funcdec_cvlist.o.d" -MT "${OBJECTDIR}/funcdec_cvlist.o.d" -MT ${OBJECTDIR}/funcdec_cvlist.o  -o ${OBJECTDIR}/funcdec_cvlist.o funcdec_cvlist.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 endif
 
@@ -184,7 +184,7 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mmcu=atmega3208 ${PACK_COMMON_OPTIONS}   -gdwarf-2 -D__$(MP_PROCESSOR_OPTION)__  -Wl,-Map="dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.map"    -o dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}      -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1 -Wl,--gc-sections -Wl,--start-group  -Wl,-lm -Wl,--end-group 
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mmcu=attiny1614 ${PACK_COMMON_OPTIONS}   -gdwarf-2 -D__$(MP_PROCESSOR_OPTION)__  -Wl,-Map="dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.map"    -o dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}      -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1 -Wl,--gc-sections -Wl,--start-group  -Wl,-lm -Wl,--end-group 
 	
 	
 	
@@ -194,7 +194,7 @@ dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${O
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mmcu=atmega3208 ${PACK_COMMON_OPTIONS}  -D__$(MP_PROCESSOR_OPTION)__  -Wl,-Map="dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.map"    -o dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}      -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION) -Wl,--gc-sections -Wl,--start-group  -Wl,-lm -Wl,--end-group 
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mmcu=attiny1614 ${PACK_COMMON_OPTIONS}  -D__$(MP_PROCESSOR_OPTION)__  -Wl,-Map="dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.map"    -o dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}      -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION) -Wl,--gc-sections -Wl,--start-group  -Wl,-lm -Wl,--end-group 
 	${MP_CC_DIR}/avr-objcopy -O ihex "dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}" "dist/${CND_CONF}/${IMAGE_TYPE}/funcdec_mk1.X.${IMAGE_TYPE}.hex"
 	
 	
