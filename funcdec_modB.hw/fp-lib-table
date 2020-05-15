@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "NGS Elements SMD")(type KiCad)(uri /home/nagus/Kicad/mod/NGS_Elements_SMD.pretty)(options "")(descr ""))
+  (lib (name NGS_Connectors_SMD)(type KiCad)(uri /home/nagus/Kicad/mod/NGS_Connectors_SMD.pretty)(options "")(descr ""))
+)
