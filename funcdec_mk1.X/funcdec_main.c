@@ -12,13 +12,14 @@
 
 #include "funcdec_board.h"
 
+// ATTiny xx14
 FUSES = {
 	0x00, // WDTCFG{PERIOD=OFF, WINDOW=OFF}
 	0x00, // BODCFG{SLEEP=DIS, ACTIVE=DIS, SAMPFREQ=1KHZ, LVL=BODLEVEL0}
 	0x02, // OSCCFG{FREQSEL=20MHZ, OSCLOCK=CLEAR}
-	0x00, // Reserved
-	0x00, // Reserved
-	0xC8, // SYSCFG0{EESAVE=CLEAR, RSTPINCFG=RST, CRCSRC=NOCRC}
+	{0x00}, // Reserved
+	0x00, // TCD0CFG{CMPA=0,CMPB=0,CMPC=0,CMPD=0,CMPAEN=DIS,CMPBEN=DIS,CMPCEN=DIS,CMPDEN=DIS}
+	0xF6, // SYSCFG0{EESAVE=CLEAR, RSTPINCFG=UPDI, CRCSRC=NOCRC}
 	0x07, // SYSCFG1{SUT=64MS}
 	0x00, // APPEND
 	0x00, // BOOTEND
@@ -28,7 +29,7 @@ LOCKBITS = {
 	0xC5, // LOCKBIT{LB=NOLOCK}
 };
 
-static uint32_t uwTick;         // takt zegara
+static uint32_t uwTick;         // zegar systemowy
 
 extern void APP_Initialize(void);
 extern void APP_TickExec(void);
@@ -48,12 +49,8 @@ void BOARD_MCU_Init(void)
 	uint8_t i;
     // low power mode
     for (i = 0; i < 8; i++) {
-        *((uint8_t *)&PORTE + 0x10 + i) |= (1 << PORT_PULLUPEN_bp);
-        *((uint8_t *)&PORTF + 0x10 + i) |= (1 << PORT_PULLUPEN_bp);
         *((uint8_t *)&PORTA + 0x10 + i) |= (1 << PORT_PULLUPEN_bp);
         *((uint8_t *)&PORTB + 0x10 + i) |= (1 << PORT_PULLUPEN_bp);
-        *((uint8_t *)&PORTC + 0x10 + i) |= (1 << PORT_PULLUPEN_bp);
-        *((uint8_t *)&PORTD + 0x10 + i) |= (1 << PORT_PULLUPEN_bp);
     }
     
 } // BOARD_MCU_Init
@@ -88,23 +85,24 @@ void BOARD_Clock_Init(void)
     
 } // BOARD_Clock_Init
 
-// inicjalizacja portów we-wy
+// inicjalizacja portów
 // param: brak
 // zwrot: brak
 void BOARD_GPIO_Init(void)
 {      
-    // OUT_ACK OUT_HB    PA2 PA5
-    PORTA.DIRSET = ((1 << PIN5_bp) | (1 << PIN2_bp));
-    *((uint8_t *)&PORTA + 0x15) = 0x00;
-    *((uint8_t *)&PORTA + 0x12) = 0x00;
+    // OUT_ACK     PA6
+    PORTA.DIRSET = (1 << PIN6_bp);
+    *((uint8_t *)&PORTA + 0x16) = 0x00;
     BOARD_OUTACK_Off();
-    BOARD_LEDHB_Off();
     
-    // DCCIN PA3
-    PORTA.DIRCLR = (1 << PIN3_bp);
+    // DCCIN PA1
+    PORTA.DIRCLR = (1 << PIN1_bp);
     
 } // BOARD_GPIO_Init
 
+// inicjalizacja timera - odbiornik DCC
+// param: brak
+// zwrot: brak
 void BOARD_TimB0_Init(void)
 {
     TCB0.CNT      = 0;
@@ -118,23 +116,25 @@ void BOARD_TimB0_Init(void)
     TCB0.CTRLA    = TCB_CLKSEL_CLKDIV1_gc |
                     (1 << TCB_ENABLE_bp);
     
-    EVSYS.CHANNEL0 = EVSYS_GENERATOR_PORT0_PIN3_gc;
-    EVSYS.USERTCB0 = EVSYS_CHANNEL_CHANNEL0_gc;
+    EVSYS.ASYNCCH0 = EVSYS_ASYNCCH0_PORTA_PIN1_gc;
+    EVSYS.ASYNCUSER0 = EVSYS_ASYNCUSER0_ASYNCCH0_gc;
     
 } // BOARD_TimB0_Init
 
+// inicjalizacja wyjść (ze ściemnianiem)
+// param: brak
+// zwrot: brak
 void BOARD_PWM_Init(void)
 {
-    // PWM out: PF0 PF1 PF2 PF3 PF4 PF5
-    PORTMUX.TCAROUTEA = PORTMUX_TCA0_PORTF_gc;
-    PORTF.DIRSET = ((1 << PIN0_bp) | (1 << PIN1_bp) | (1 << PIN2_bp) |
-                    (1 << PIN3_bp) | (1 << PIN4_bp) | (1 << PIN5_bp));
-    *((uint8_t *)&PORTF + 0x10) = 0x00;
-    *((uint8_t *)&PORTF + 0x11) = 0x00;
-    *((uint8_t *)&PORTF + 0x12) = 0x00;
-    *((uint8_t *)&PORTF + 0x13) = 0x00;
-    *((uint8_t *)&PORTF + 0x14) = 0x00;
-    *((uint8_t *)&PORTF + 0x15) = 0x00;
+    // PWM out: PA3 PA4 PA5 PB0 PB1 PB2
+    PORTA.DIRSET = ((1 << PIN3_bp) | (1 << PIN4_bp) | (1 << PIN5_bp));
+    *((uint8_t *)&PORTA + 0x13) = 0x00;
+    *((uint8_t *)&PORTA + 0x14) = 0x00;
+    *((uint8_t *)&PORTA + 0x15) = 0x00;
+    PORTB.DIRSET = ((1 << PIN0_bp) | (1 << PIN1_bp) | (1 << PIN2_bp));
+    *((uint8_t *)&PORTB + 0x10) = 0x00;
+    *((uint8_t *)&PORTB + 0x11) = 0x00;
+    *((uint8_t *)&PORTB + 0x12) = 0x00;
     
     TCA0.SPLIT.CTRLD    = (1 << TCA_SPLIT_SPLITM_bp);
     TCA0.SPLIT.HPER     = 0xFF;
@@ -147,7 +147,7 @@ void BOARD_PWM_Init(void)
     TCA0.SPLIT.LCMP2    = 0xFF;
     TCA0.SPLIT.HCNT     = 0x00;
     TCA0.SPLIT.LCNT     = 0x00;
-    TCA0.SPLIT.CTRLB    = 0x00;
+    TCA0.SPLIT.CTRLB    = 0x00;     // default: OFF
     TCA0.SPLIT.CTRLA    = TCA_SPLIT_CLKSEL_DIV4_gc | (1 << TCA_SPLIT_ENABLE_bp);
  
 } // BOARD_PWM_Init
@@ -164,14 +164,14 @@ int main(void)
     BOARD_PWM_Init();
     
     APP_Initialize();
-    // włączenie przerwań
+    // interrupt enable
 	_PROTECTED_WRITE(CPUINT.CTRLA, 0x00);
 	CPUINT.LVL0PRI = 0x00;
 	CPUINT.LVL1VEC = 0x00;
 	SYS_EnableInterrupts();
     
     static uint32_t lastTick = 0;
-    // główna pętla
+    // pętla główna
     while (1) {
         if (lastTick != uwTick) {
             APP_TickExec();
@@ -184,7 +184,7 @@ int main(void)
     
 } // main
 
-// takt zegara 1ms
+// zegar z taktem 1ms - przerwanie
 ISR(RTC_PIT_vect)
 {
 	RTC.PITINTFLAGS = (1 << RTC_PI_bp);
