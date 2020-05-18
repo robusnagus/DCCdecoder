@@ -277,17 +277,22 @@ void DCC_DecodePacket(void)
     }
         
     if (decConf & DECCFG_LONGADDR) {
-        if ((dccPacket[0] != decAddrH) || (dccPacket[1] != decAddrL))
+        if ((dccPacket[0] != decAddrH) || (dccPacket[1] != decAddrL)) {
+            SERIAL_SendString("RL\r\n");
             return;
+        }
         idx = 2;
     }
     else {
         // krótki adres
-        if (dccPacket[0] != decAddr)
+        if (dccPacket[0] != decAddr) {
+            SERIAL_SendString("R\r\n");
             return;
+        }
         idx = 1;
     }
-        
+    
+    SERIAL_SendString("D\r\n");
     // zwykły pakiet
     decState = DEC_STAT_RUNNING;
     switch (dccPacket[idx] & DCC_TYPE_MASK) {

@@ -77,10 +77,11 @@ uint8_t APP_CheckPacket(void)
     }
     if ((dccFilter & (LOGI_DCC_ALL | LOGI_DCC_ONCE)) != 0) {
         dccPktLen = 0;
-        if (sum)
+        if (sum) {
             *(pOutStr++) = 'W';
-        *(pOutStr++) = '\r';
-        *(pOutStr++) = '\n';
+            *(pOutStr++) = '\r';
+            *(pOutStr++) = '\n';
+        }
         *pOutStr = 0;
         SERIAL_SendString(dccOutBuf);
         
@@ -222,7 +223,7 @@ void APP_UpdateOutput(void)
     if (blinkHB == 1) {
         BOARD_LEDHB_On();
     }
-    else if (blinkHB == 500) {
+    else if (blinkHB == 750) {
         BOARD_LEDHB_Off();
     }
     else if (blinkHB > 1000) {
@@ -261,7 +262,7 @@ void APP_Initialize(void)
     BOARD_PWM_Enable(BOARD_PWM_NONE);
     
     SERIAL_Initialize();  
-    SERIAL_SendString("DCCdec08 v.200427.0\r\n");
+    SERIAL_SendString("DCCdec08 v.200517.1\r\n");
     
 } // APP_Initialize
 
