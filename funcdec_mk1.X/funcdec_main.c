@@ -105,19 +105,19 @@ void BOARD_GPIO_Init(void)
 // zwrot: brak
 void BOARD_TimB0_Init(void)
 {
+    EVSYS.ASYNCCH0   = EVSYS_ASYNCCH0_PORTA_PIN1_gc;
+    EVSYS.ASYNCUSER0 = EVSYS_ASYNCUSER0_ASYNCCH0_gc;
+    
     TCB0.CNT      = 0;
     TCB0.CCMP     = 0;
     TCB0.CTRLB    = TCB_CNTMODE_PW_gc;
     TCB0.EVCTRL   = (0 << TCB_EDGE_bp) |
                     (1 << TCB_CAPTEI_bp);
     TCB0.INTCTRL  = (1 << TCB_CAPT_bp);
-    TCB0.INTFLAGS = 0x00;
     TCB0.TEMP     = 0x00;
+    TCB0.INTFLAGS = (1 << TCB_CAPT_bp);
     TCB0.CTRLA    = TCB_CLKSEL_CLKDIV1_gc |
-                    (1 << TCB_ENABLE_bp);
-    
-    EVSYS.ASYNCCH0 = EVSYS_ASYNCCH0_PORTA_PIN1_gc;
-    EVSYS.ASYNCUSER0 = EVSYS_ASYNCUSER0_ASYNCCH0_gc;
+                    (1 << TCB_ENABLE_bp);   
     
 } // BOARD_TimB0_Init
 

@@ -128,7 +128,7 @@ void CV_SetValue(uint8_t cv, uint8_t value)
     }
     
     eeprom_busy_wait();
-    eeprom_write_byte(&(decConfig[cv]), value);
+    eeprom_update_byte(&(decConfig[cv]), value);
 
 } // CV_SetValue
 
@@ -332,15 +332,15 @@ void DCC_DecodePacket(void)
 void DCC_DecoderInit(void)
 {  
     decAddr  = CV_GetValue(CV001_DecAddr);
-    if (decAddr == 0xFF) {
+    if (decAddr == 0xFF) {       
         DCC_RestoreDefault();
     }
     else {
         decAddrH = CV_GetValue(CV017_DecAddrH);
         decAddrL = CV_GetValue(CV018_DecAddrL);
-        decConf  = CV_GetValue(CV029_Config);        
+        decConf  = CV_GetValue(CV029_Config);   
     }
-   
+    
 } // DCC_DecoderInit
 
 // EOF funcdec_decode.c
