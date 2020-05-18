@@ -5,7 +5,7 @@
         <group>
             <file>file:/home/nagus/Projekty/DCCdecoder/funcdec_mk1.X/funcdec_app.c</file>
             <file>file:/home/nagus/Projekty/DCCdecoder/funcdec_mk1.X/funcdec_main.c</file>
-            <file>file:/home/nagus/Projekty/DCCdecoder/funcdec_mk1.X/funcdec_config.h</file>
+            <file>file:/home/nagus/Projekty/DCCdecoder/funcdec_mk1.X/funcdec_board.h</file>
             <file>file:/home/nagus/Projekty/DCCdecoder/funcdec_mk1.X/funcdec_recv.c</file>
             <file>file:/home/nagus/Projekty/DCCdecoder/funcdec_mk1.X/funcdec_decode.c</file>
         </group>
