@@ -1,5 +1,5 @@
-Drill report for /home/nagus/Projekty/DCCdecoder/funcdec_utin.hw/funcdec_uni.hw.kicad_pcb
-Created on wto, 21 kwi 2020, 11:36:10
+Drill report for /home/nagus/Projekty/DCCdecoder/funcdec_modB.hw/funcdec_uni.hw.kicad_pcb
+Created on śro, 23 wrz 2020, 10:42:20
 
 Copper Layer Stackup:
     =============================================================
@@ -10,9 +10,9 @@ Copper Layer Stackup:
 Drill file 'funcdec_uni.hw.drl' contains
     plated through holes:
     =============================================================
-    T1  0,50mm  0,020"  (21 holes)
+    T1  0,50mm  0,020"  (23 holes)
 
-    Total plated holes count 21
+    Total plated holes count 23
 
 
 Not plated through holes are merged with plated holes

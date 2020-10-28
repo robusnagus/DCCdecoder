@@ -1,4 +1,4 @@
-18378014071348869
+18680086705450333
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -56594,6 +56594,1000 @@ mounting hole 8.4mm m8
 0
 9
 1
+NGS Connectors SMD
+Array_1-27mm_1X1_SMD
+single connection point
+array
+0
+1
+1
+NGS Connectors SMD
+Array_1-27mm_1X3_SMD
+single row pin array
+pin array
+0
+3
+3
+NGS Connectors SMD
+Array_1-27mm_1X5_SMD
+single row pin array
+pin array
+0
+5
+5
+NGS Connectors SMD
+Array_1-27mm_1X7_SMD
+single row pin array
+pin array
+0
+7
+7
+NGS Connectors SMD
+Array_1-27mm_1X8_SMD
+single row pin array
+pin array
+0
+8
+8
+NGS Connectors SMD
+Array_1-50mm_1X7_SMD
+single row pin array
+pin array
+0
+7
+7
+NGS Connectors SMD
+Conn_DC5_5_SMD
+DC 2.5mm socket smd
+DC
+0
+4
+3
+NGS Connectors SMD
+Conn_IDC10_1-27mm_SMD
+IDC 10pin 1.27mm cms
+IDC
+0
+10
+10
+NGS Connectors SMD
+Conn_IDC14_1-27mm_SMD
+IDC 14pin 1.27mm cms
+IDC
+0
+14
+14
+NGS Connectors SMD
+Conn_RJ12-6_SMD
+
+RJ12
+0
+8
+7
+NGS Connectors SMD
+Conn_RJ45-8_SMD
+
+RJ45
+0
+10
+9
+NGS Connectors SMD
+Conn_USB-A_cms
+
+
+0
+6
+5
+NGS Connectors SMD
+Conn_USB-B_cms
+USB B cms
+USB
+0
+6
+5
+NGS Connectors SMD
+Conn_USB_B_MINI5_SMD_HS
+USB mini-B 5pin
+USB
+0
+9
+6
+NGS Connectors SMD
+Conn_USB_B_Micro_SMD_HS
+Micro USB Type B Receptacle
+USB USB_B USB_micro USB_OTG
+0
+7
+6
+NGS Connectors SMD
+Crimp_1-25mm_6pin_SMD
+crimp 1.25mm 6-pin socket smd
+CONN
+0
+8
+7
+NGS Connectors SMD
+PinArray_1-27mm_1X5_Horiz_SMD
+pin array 1.27 cms angled
+pin-array header
+0
+5
+5
+NGS Connectors SMD
+PinArray_1-27mm_1X5_SMD
+pin array 1.27 smd 1x5
+pin array
+0
+5
+5
+NGS Connectors SMD
+PinArray_1-27mm_1X8_SMD
+pin array 1.27 smd 1x8
+pin array
+0
+8
+8
+NGS Connectors SMD
+PinArray_1-27mm_2X5_SMD
+pin array 1.27 smd 2x5
+pin array
+0
+10
+10
+NGS Connectors SMD
+PinArray_1X4_SMD
+pin array 2.54 smd 1x4
+pin array
+0
+4
+4
+NGS Connectors SMD
+PinArray_1X5_Horiz_SMD
+pin array 2.54 1x5 smd horizontal
+pin array
+0
+5
+5
+NGS Connectors SMD
+PinArray_1X5_SMD
+pin array 2.54 smd 1x5
+pin array
+0
+5
+5
+NGS Connectors SMD
+PinArray_2X1_SMD
+golpin 2.54 smd 2x1
+pin array
+0
+2
+2
+NGS Connectors SMD
+PinArray_2X3_SMD
+golpin 2.54 smd 2x3
+pin array
+0
+6
+6
+NGS Connectors SMD
+PinArray_2X5_Female_SMD
+golpin 2.54 smd 2x5 socket
+pin array
+0
+10
+10
+NGS Connectors SMD
+PinArray_2X5_SMD
+golpin 2.54 smd 2x5
+pin array
+0
+10
+10
+NGS Connectors SMD
+PinArray_2X7_SMD
+golpin 2.54 smd 2x7
+pin array
+0
+14
+14
+NGS Connectors SMD
+PinArray_2X8_SMD
+golpin 2.54 smd 2x8
+pin array
+0
+16
+16
+NGS Connectors SMD
+PinArray_2X10_SMD
+golpin 2.54 smd 2x10
+pin array
+0
+20
+20
+NGS Connectors SMD
+PinArray_2X20_Female_SMD
+golpin 2.54 smd 2x20 socket
+pin array
+0
+40
+40
+NGS Connectors SMD
+PinArray_2X20_SMD
+golpin 2.54 smd 2x20
+pin array
+0
+40
+40
+NGS Connectors SMD
+ZIF20_1-27mm_SMD_HS
+ZIF socket 0.5mm 20-pin SMD
+ZIF
+0
+22
+21
+NGS Connectors THT
+Conn_Centronics_24_E
+centronics 24pin
+centronics
+0
+26
+25
+NGS Connectors THT
+Conn_Crimp_2-00mm_2_E
+crimp terminal 2.00mm 2pin
+crimp
+0
+2
+2
+NGS Connectors THT
+Conn_Crimp_2-00mm_4_E
+crimp terminal 2.00mm 4pin
+crimp
+0
+4
+4
+NGS Connectors THT
+Conn_Crimp_2-00mm_6_E
+crimp terminal 2.00mm 6pin
+crimp
+0
+6
+6
+NGS Connectors THT
+Conn_Crimp_2-00mm_10E
+crimp terminal 2.00mm 10pin
+crimp
+0
+10
+10
+NGS Connectors THT
+Conn_DB9_Female
+Connecteur DB9 femelle couche 13.84mm
+CONN DB9
+0
+11
+10
+NGS Connectors THT
+Conn_DB9_Female_7-2mm
+Connecteur DB9 femelle couche 7.2mm
+CONN DB9
+0
+11
+10
+NGS Connectors THT
+Conn_DB9_Female_9-4mm
+Connecteur DB9 femelle couche 9.4mm
+CONN DB9
+0
+11
+10
+NGS Connectors THT
+Conn_DC_5-5mm
+DC 5.5mm socket
+DC
+0
+3
+3
+NGS Connectors THT
+Conn_DC_5-5mm_SS
+DC 5.5mm socket
+DC
+0
+3
+3
+NGS Connectors THT
+Conn_IDC6
+IDC 6pin vert.
+connector IDC
+0
+6
+6
+NGS Connectors THT
+Conn_IDC6_SS
+IDC 6pin vert.
+connector IDC
+0
+6
+6
+NGS Connectors THT
+Conn_IDC10
+IDC 10pin vert.
+connector IDC
+0
+10
+10
+NGS Connectors THT
+Conn_IDC10_SS
+IDC 10pin vert.
+connector IDC
+0
+10
+10
+NGS Connectors THT
+Conn_KK2
+header kk100 2pin
+header
+0
+2
+2
+NGS Connectors THT
+Conn_KK2_E
+header kk100 2pin
+header
+0
+2
+2
+NGS Connectors THT
+Conn_KK3
+header kk100 3pin
+header
+0
+3
+3
+NGS Connectors THT
+Conn_KK3_E
+header kk100 3pin
+header
+0
+3
+3
+NGS Connectors THT
+Conn_KK4
+header kk100 4pin
+header
+0
+4
+4
+NGS Connectors THT
+Conn_KK4_E
+header kk100 4pin
+header
+0
+4
+4
+NGS Connectors THT
+Conn_KK5
+header kk100 5pin
+header
+0
+5
+5
+NGS Connectors THT
+Conn_KK5_E
+header kk100 5pin
+header
+0
+5
+5
+NGS Connectors THT
+Conn_KK6
+header kk100 6pin
+header
+0
+6
+6
+NGS Connectors THT
+Conn_KK6_E
+header kk100 6pin
+header
+0
+6
+6
+NGS Connectors THT
+Conn_KK8_E
+header kk100 8pin
+header
+0
+8
+8
+NGS Connectors THT
+Conn_NS39_2
+conn ns39 2pin
+
+0
+2
+2
+NGS Connectors THT
+Conn_NS39_2_E
+conn ns39 2pin
+
+0
+2
+2
+NGS Connectors THT
+Conn_NS39_3
+conn ns39 3pin
+
+0
+3
+3
+NGS Connectors THT
+Conn_NS39_3_E
+conn ns39 3pin
+
+0
+3
+3
+NGS Connectors THT
+Conn_NS39_4
+conn ns39 3pin
+
+0
+4
+4
+NGS Connectors THT
+Conn_NS39_4_E
+conn ns39 3pin
+
+0
+4
+4
+NGS Connectors THT
+Conn_RJ12-4
+RJ12 4-pin
+RJ
+0
+4
+4
+NGS Connectors THT
+Conn_RJ12-4_SS
+RJ12 4-pin
+RJ
+0
+4
+4
+NGS Connectors THT
+Conn_RJ12-6
+RJ12 6-pin
+RJ
+0
+6
+6
+NGS Connectors THT
+Conn_RJ45-4
+RJ-45 4-pin
+RJ45
+0
+4
+4
+NGS Connectors THT
+Conn_RJ45-6
+RJ-45 6-pin
+RJ45
+0
+6
+6
+NGS Connectors THT
+Conn_RJ45-8
+RJ-45 8-pin
+RJ45
+0
+8
+8
+NGS Connectors THT
+Conn_RJ45-8_Double
+RJ-45 8-pin double
+RJ45
+0
+16
+16
+NGS Connectors THT
+Conn_SIL7
+Connecteur 7 pins
+CONN DEV
+0
+7
+7
+NGS Connectors THT
+Conn_SIL9
+Connecteur 9 pins
+CONN DEV
+0
+9
+9
+NGS Connectors THT
+Conn_SIL10
+Connecteur 10 pins
+CONN DEV
+0
+10
+10
+NGS Connectors THT
+Conn_USB-A
+connector USB type A
+USB
+0
+6
+5
+NGS Connectors THT
+Conn_USB-B
+Connector USB type B
+USB
+0
+6
+5
+NGS Connectors THT
+Hdr_1X1_3-5mm
+
+
+0
+1
+1
+NGS Connectors THT
+Jumper
+Connector 2pin
+jumper
+0
+2
+2
+NGS Connectors THT
+Jumper_SS
+Connector 2pin
+jumper
+0
+2
+2
+NGS Connectors THT
+PinArray_1-27mm_1X2_E
+2-pin header 1.27mm
+pinheader
+0
+2
+2
+NGS Connectors THT
+PinArray_1-27mm_1X5_E
+pin array 1.27 1x5
+pin array
+0
+5
+5
+NGS Connectors THT
+PinArray_1X1
+header c-grid 1pin
+header
+0
+1
+1
+NGS Connectors THT
+PinArray_1X1_E
+header c-grid 1pin
+header
+0
+1
+1
+NGS Connectors THT
+PinArray_1X2
+header c-grid 2pin
+header
+0
+2
+2
+NGS Connectors THT
+PinArray_1X2_Angled
+header c-grid angled
+connector c-grid
+0
+2
+2
+NGS Connectors THT
+PinArray_1X2_E
+header c-grid 2pin
+header
+0
+2
+2
+NGS Connectors THT
+PinArray_1X2_E_Angled
+header c-grid angled
+connector c-grid
+0
+2
+2
+NGS Connectors THT
+PinArray_1X3
+header c-grid 3pin
+header
+0
+3
+3
+NGS Connectors THT
+PinArray_1X3_E
+header c-grid 3pin
+header
+0
+3
+3
+NGS Connectors THT
+PinArray_1X4_E
+header c-grid 4pin
+header
+0
+4
+4
+NGS Connectors THT
+PinArray_1X4_E_Angled
+header c-grid 4-pin horizontal
+header
+0
+4
+4
+NGS Connectors THT
+PinArray_1X5
+header c-grid 5pin
+header
+0
+5
+5
+NGS Connectors THT
+PinArray_1X5_E
+header c-grid 5pin
+header
+0
+5
+5
+NGS Connectors THT
+PinArray_1X5_E_Angled
+header c-grid 5-pin horizontal
+header
+0
+5
+5
+NGS Connectors THT
+PinArray_1X6_Angled
+header c-grid 6-pin horizontal
+header
+0
+6
+6
+NGS Connectors THT
+PinArray_1X6_E
+header c-grid 6pin
+header
+0
+6
+6
+NGS Connectors THT
+PinArray_1X8_E
+header c-grid 8pin
+header
+0
+8
+8
+NGS Connectors THT
+PinArray_1X10_E
+header c-grid 10pin
+header
+0
+10
+10
+NGS Connectors THT
+PinArray_1X16_E
+header c-grid 16pin
+header
+0
+16
+16
+NGS Connectors THT
+PinArray_1X20_E
+header c-grid 20pin
+header
+0
+20
+20
+NGS Connectors THT
+PinArray_2-00mm_1X10_E
+header 10pin 2mm
+header
+0
+10
+10
+NGS Connectors THT
+PinArray_2X8
+pin array 2x8 2.54mm
+CONN
+0
+16
+16
+NGS Connectors THT
+PinArray_2X20
+pin array 2x20 2.54mm
+CONN
+0
+40
+40
+NGS Connectors THT
+TermBlock_2-54mm_LE2_2
+2.54mm, 2-wire
+ARK
+0
+4
+2
+NGS Connectors THT
+TermBlock_3-5mm-2
+
+
+0
+2
+2
+NGS Connectors THT
+TermBlock_3-5mm-2_E
+
+
+0
+2
+2
+NGS Connectors THT
+TermBlock_3-5mm-3
+
+
+0
+3
+3
+NGS Connectors THT
+TermBlock_3-5mm-3_E
+
+
+0
+3
+3
+NGS Connectors THT
+TermBlock_DG240-25-2
+Degson 2.54mm connector
+
+0
+4
+2
+NGS Connectors THT
+TermBlock_DG240-25-2_SS
+Degson 2.54mm connector
+
+0
+4
+2
+NGS Connectors THT
+TermBlock_TBG5KW2
+5mm terminal block socket
+
+0
+2
+2
+NGS Connectors THT
+TermBlock_TBG5KW2_SS
+5mm terminal block socket
+
+0
+2
+2
+NGS Display
+7Seg_0-36in_E3_E
+
+
+0
+10
+10
+NGS Display
+7Seg_BA56
+7SEG 0,56" 4-digit display mux
+7seg display
+0
+12
+12
+NGS Display
+7Seg_CA56
+7SEG 0,56" 4-digit display mux
+7seg display
+0
+12
+12
+NGS Display
+7Seg_KV4_311
+7SEG 0,31" 4-digit display mux LuckyLight
+7seg display
+0
+12
+12
+NGS Display
+FPC_24_1.00mm_SLDR
+
+graph LCD
+0
+24
+24
+NGS Display
+LCDMOD_JLX12864G-330
+
+
+0
+16
+13
+NGS Display
+LCDMOD_JLX12864G-330_E
+
+
+0
+16
+13
+NGS Display
+LCD_8x2_noBL
+LCD display 8x2 noBL
+LCD display
+0
+14
+14
+NGS Display
+LCD_16x1_BIG_E
+LCD 16x1BL BIG
+LCD
+0
+16
+16
+NGS Display
+LCD_16x2BL_E
+
+LCD 16x2
+0
+16
+16
+NGS Display
+LCD_AC-C1602A
+LCD 16x2 COG
+
+0
+14
+14
+NGS Display
+LCD_CGG128064AYOO-FHW
+
+graph LCD
+0
+24
+24
+NGS Display
+LCD_Raystar_RC1202A_E
+
+LCD
+0
+15
+15
+NGS Display
+LCD_Raystar_RX1602A5_E
+
+
+0
+10
+10
+NGS Display
+LED_2x5mm
+Led 2x5mm
+LED DEV
+0
+2
+2
+NGS Display
+LED_2x5mm_SS
+Led 2x5mm
+LED DEV
+0
+2
+2
+NGS Display
+LED_3mm
+Led diam 3mm
+LED DEV
+0
+2
+2
+NGS Display
+LED_3mm_2color
+LED 2-color, 3mm dia
+LED
+0
+3
+3
+NGS Display
+LED_3mm_2color_E
+LED 2-color, 3mm dia
+LED
+0
+3
+3
+NGS Display
+LED_3mm_SS
+Led diam 3mm
+LED DEV
+0
+2
+2
+NGS Display
+LED_5mm
+Led diam 5mm
+LED
+0
+2
+2
+NGS Display
+LED_5mm_RGB
+Led diam 5mm
+LED
+0
+4
+4
+NGS Display
+LED_5mm_SS
+Led diam 5mm
+LED
+0
+2
+2
+NGS Display
+LED_5x10mm_dbl
+Led 5x10mm D
+LED DEV
+0
+4
+4
+NGS Display
+LED_BAR10_E
+10-LED bar
+LED bar
+0
+20
+20
+NGS Display
+LED_BL_74-0X27-7
+LED backlight 74x27.7mm
+
+0
+2
+2
+NGS Display
+LED_BL_75X25
+
+led backlight
+0
+2
+2
+NGS Display
+LightGuide_Mentor_1272_2
+Mentor LED light guide 1272 - 2 pcs
+
+0
+0
+0
+NGS Display
+LightGuide_Mentor_1272_3
+Mentor LED light guide 1272 - 3 pcs
+
+0
+0
+0
+NGS Display
+Module_LCD96x44_HX1230
+
+
+0
+8
+8
 NGS Elements SMD
 CP_caseA_fi3_HS
 smt fi3 electrol. capacitor
@@ -57204,6 +58198,13 @@ SOT23_5
 6
 6
 NGS Elements SMD
+SOT23_E_HS
+Module CMS SOT23 extended pads
+CMS SOT
+0
+3
+3
+NGS Elements SMD
 SOT23_HS
 Module CMS SOT23
 CMS SOT
@@ -57245,6 +58246,13 @@ SSOP20_w4.4_p0.65_HS
 0
 20
 20
+NGS Elements SMD
+SSOP24_w7.62_p1.00_HS
+SSOP 7.62mm width, 1.0 mm pitch, hand-soldering
+SSOP
+0
+24
+24
 NGS Elements SMD
 SSOP28_HS
 SSOP 28 pins
@@ -57350,230 +58358,573 @@ mini MELF glass diode
 0
 2
 2
-NGS_Connectors_SMD
-Array_1-27mm_1X1_SMD
-single connection point
-array
-0
-1
-1
-NGS_Connectors_SMD
-Array_1-27mm_1X3_SMD
-single row pin array
-pin array
-0
-3
-3
-NGS_Connectors_SMD
-Array_1-27mm_1X7_SMD
-single row pin array
-pin array
-0
-7
-7
-NGS_Connectors_SMD
-Array_1-27mm_1X8_SMD
-single row pin array
-pin array
-0
-8
-8
-NGS_Connectors_SMD
-Array_1-50mm_1X7_SMD
-single row pin array
-pin array
-0
-7
-7
-NGS_Connectors_SMD
-Conn_DC5_5_SMD
-DC 2.5mm socket smd
-DC
-0
-4
-3
-NGS_Connectors_SMD
-Conn_IDC10_1-27mm_SMD
-IDC 10pin 1.27mm cms
-IDC
-0
-10
-10
-NGS_Connectors_SMD
-Conn_IDC14_1-27mm_SMD
-IDC 14pin 1.27mm cms
-IDC
-0
-14
-14
-NGS_Connectors_SMD
-Conn_RJ12-6_SMD
-
-RJ12
-0
-8
-7
-NGS_Connectors_SMD
-Conn_RJ45-8_SMD
-
-RJ45
-0
-10
-9
-NGS_Connectors_SMD
-Conn_USB-A_cms
-
-
-0
-6
-5
-NGS_Connectors_SMD
-Conn_USB-B_cms
-USB B cms
-USB
-0
-6
-5
-NGS_Connectors_SMD
-Conn_USB_B_MINI5_SMD_HS
-USB mini-B 5pin
-USB
-0
-9
-6
-NGS_Connectors_SMD
-Conn_USB_B_Micro_SMD_HS
-Micro USB Type B Receptacle
-USB USB_B USB_micro USB_OTG
-0
-7
-6
-NGS_Connectors_SMD
-Crimp_1-25mm_6pin_SMD
-crimp 1.25mm 6-pin socket smd
-CONN
-0
-8
-7
-NGS_Connectors_SMD
-PinArray_1-27mm_1X5_Horiz_SMD
-pin array 1.27 cms angled
-pin-array header
-0
-5
-5
-NGS_Connectors_SMD
-PinArray_1-27mm_1X5_SMD
-pin array 1.27 smd 1x5
-pin array
-0
-5
-5
-NGS_Connectors_SMD
-PinArray_1-27mm_1X8_SMD
-pin array 1.27 smd 1x8
-pin array
-0
-8
-8
-NGS_Connectors_SMD
-PinArray_1-27mm_2X5_SMD
-pin array 1.27 smd 2x5
-pin array
-0
-10
-10
-NGS_Connectors_SMD
-PinArray_1X4_SMD
-pin array 2.54 smd 1x4
-pin array
+NGS Elements THT
+Bridge_F200
+bridge rectifier flat
+rectifier
 0
 4
 4
-NGS_Connectors_SMD
-PinArray_1X5_Horiz_SMD
-pin array 2.54 1x5 smd horizontal
-pin array
+NGS Elements THT
+Bridge_F400
+bridge rectifier flat 4A
+rectifier
 0
-5
-5
-NGS_Connectors_SMD
-PinArray_1X5_SMD
-pin array 2.54 smd 1x5
-pin array
-0
-5
-5
-NGS_Connectors_SMD
-PinArray_2X1_SMD
-golpin 2.54 smd 2x1
-pin array
+4
+4
+NGS Elements THT
+Buzzer_12mm
+
+
 0
 2
 2
-NGS_Connectors_SMD
-PinArray_2X3_SMD
-golpin 2.54 smd 2x3
-pin array
+NGS Elements THT
+CP_6-5mm_100
+
+CP
+0
+2
+2
+NGS Elements THT
+CP_6-5mm_100_SS
+
+CP
+0
+2
+2
+NGS Elements THT
+CP_8mm_150
+
+CP
+0
+2
+2
+NGS Elements THT
+CP_8mm_150_SS
+
+CP
+0
+2
+2
+NGS Elements THT
+CP_10mm_200
+Condensateur polarise
+CP
+0
+2
+2
+NGS Elements THT
+CP_10mm_200_SS
+Condensateur polarise
+CP
+0
+2
+2
+NGS Elements THT
+CP_13mm_200
+
+CP
+0
+2
+2
+NGS Elements THT
+CP_13mm_200_SS
+
+CP
+0
+2
+2
+NGS Elements THT
+CP_16mm_300
+
+CP
+0
+2
+2
+NGS Elements THT
+CP_16mm_300_SS
+
+CP
+0
+2
+2
+NGS Elements THT
+C_7x5mm_200
+
+capacitor 7x5mm
+0
+2
+2
+NGS Elements THT
+C_7x5mm_200_SS
+
+capacitor 7x5mm
+0
+2
+2
+NGS Elements THT
+Crystal_HC49
+crystal HC49 vertical
+crystal
+0
+2
+2
+NGS Elements THT
+DIP6_E
+DIL 6-pin package, pads elliptiques
+DIL
 0
 6
 6
-NGS_Connectors_SMD
-PinArray_2X5_Female_SMD
-golpin 2.54 smd 2x5 socket
+NGS Elements THT
+DIP12_E
+DIL 12-pin package, pads elliptiques
+DIL
+0
+12
+12
+NGS Elements THT
+DIP18_E
+18 pins DIL package, elliptical pads
+
+0
+18
+18
+NGS Elements THT
+Fuse_RA090-60
+ECE polymer fuse RA series 0.9A
+fuse polymer
+0
+2
+2
+NGS Elements THT
+Fuse_RA185-60
+ECE polymer fuse RA series 1.85A
+fuse polymer
+0
+2
+2
+NGS Elements THT
+Fuse_RA375-60
+ECE fuse RA series 3.75A
+fuse polimer
+0
+2
+2
+NGS Elements THT
+Module_ESP32_Devkit_v4
+ESP32 development module DevKit 38-pin
+ESP32 module
+0
+38
+38
+NGS Elements THT
+Module_ESP8266-ESP01
+ESP01 
+WiFi module
+0
+8
+8
+NGS Elements THT
+Module_ESP8266-ESP01_SMD
+module ESP01 cms
 pin array
+0
+8
+8
+NGS Elements THT
+Module_ESP8266-ESP01_SS
+ESP01 
+WiFi module
+0
+8
+8
+NGS Elements THT
+Module_RFM01
+radio receiver module (dip)
+radio receiver
+0
+12
+12
+NGS Elements THT
+Module_RFM02
+radio transmitter module (dip)
+radio transmitter
+0
+8
+8
+NGS Elements THT
+Module_RFM70D_E
+HOPE RF 2.4GHz transceiver DIP ver.
+transceiver ISM
+0
+8
+8
+NGS Elements THT
+Multiwatt11
+Multiwatt11
+Multiwatt
+0
+11
+11
+NGS Elements THT
+Multiwatt11_E
+Multiwatt11
+Multiwatt
+0
+11
+11
+NGS Elements THT
+Multiwatt15
+Multiwatt15
+Multiwatt
+0
+15
+15
+NGS Elements THT
+Multiwatt15_E
+Multiwatt15
+Multiwatt
+0
+15
+15
+NGS Elements THT
+OptoRec_TFMS5
+infrared receiver
+IR
+0
+3
+3
+NGS Elements THT
+R1W_12X5mm_700
+12x5 mm 1W resistor
+DEV
+0
+2
+2
+NGS Elements THT
+R2W_16X5-5mm_900
+16x5.5 mm 2W resistor
+DEV
+0
+2
+2
+NGS Elements THT
+R3W_17-5X6-5mm_1000
+17.5x6.5 mm 3W resistor
+DEV
+0
+2
+2
+NGS Elements THT
+R05W_10X3-5mm_600
+10x3.5 mm 0.5W resistor
+DEV
+0
+2
+2
+NGS Elements THT
+R5W_22X10mm_1200
+10x22 mm resistor 5W
+DEV
+0
+2
+2
+NGS Elements THT
+R025W_7-5X2-5mm_500
+7.5x2.5 mm 0.25W resistor
+DEV
+0
+2
+2
+NGS Elements THT
+R_5X2-5mm_400
+5x2.5 mm
+DEV
+0
+2
+2
+NGS Elements THT
+R_5X2-5mm_500
+5x2.5 mm
+DEV
+0
+2
+2
+NGS Elements THT
+R_5X2-5mm_600
+5x2.5 mm
+DEV
+0
+2
+2
+NGS Elements THT
+Relay_AZ850
+
+relay
 0
 10
 10
-NGS_Connectors_SMD
-PinArray_2X5_SMD
-golpin 2.54 smd 2x5
-pin array
+NGS Elements THT
+Relay_D2N
+relay DPDT type D2N
+relay
 0
-10
-10
-NGS_Connectors_SMD
-PinArray_2X7_SMD
-golpin 2.54 smd 2x7
-pin array
+8
+8
+NGS Elements THT
+Relay_R1-1A
+
+relay reed spst
 0
-14
-14
-NGS_Connectors_SMD
-PinArray_2X8_SMD
-golpin 2.54 smd 2x8
-pin array
+4
+4
+NGS Elements THT
+RotEnc_ED1212S_E
+12mm encoder vert. w. switch
+encoder
 0
-16
-16
-NGS_Connectors_SMD
-PinArray_2X10_SMD
-golpin 2.54 smd 2x10
-pin array
+7
+6
+NGS Elements THT
+Switch_DPDT
+DPDT switch
+switch dpdt
 0
-20
-20
-NGS_Connectors_SMD
-PinArray_2X20_Female_SMD
-golpin 2.54 smd 2x20 socket
-pin array
+6
+6
+NGS Elements THT
+Switch_DPDT_wLED
+DPDT switch
+switch dpdt
 0
-40
-40
-NGS_Connectors_SMD
-PinArray_2X20_SMD
-golpin 2.54 smd 2x20
-pin array
+8
+8
+NGS Elements THT
+Switch_TACT3x6
+small pushbutton (2-pin)
+pushbutton
 0
-40
-40
-NGS_Connectors_SMD
-ZIF20_1-27mm_SMD_HS
-ZIF socket 0.5mm 20-pin SMD
-ZIF
+2
+2
+NGS Elements THT
+Switch_TACT3x6_SS
+small pushbutton (2-pin)
+pushbutton
 0
-22
-21
+2
+2
+NGS Elements THT
+Switch_TACT6x6
+pushbutton TACT 6x6
+TACT
+0
+4
+4
+NGS Elements THT
+Switch_TACT6x6_Angled
+TACTA-64 pushbutton vert
+pushbutton TACT
+0
+4
+3
+NGS Elements THT
+Switch_TACT6x6_Angled_SS
+TACTA-64 pushbutton vert
+pushbutton TACT
+0
+4
+3
+NGS Elements THT
+Switch_TACT6x6_SS
+pushbutton TACT 6x6
+TACT
+0
+4
+4
+NGS Elements THT
+Switch_TACT12x12
+push-button 12x12 mm
+push-button
+0
+4
+4
+NGS Elements THT
+Switch_TACT12x12_SS
+push-button 12x12 mm
+push-button
+0
+4
+4
+NGS Elements THT
+TO-220-7
+
+TO220
+0
+7
+7
+NGS Elements THT
+TO-220-7_SS
+
+TO220
+0
+7
+7
+NGS Elements THT
+TO220-5
+TO220 5-pin verical
+TO220
+0
+5
+5
+NGS Elements THT
+TO220_E
+TO220
+TO220
+0
+3
+3
+NGS Elements THT
+TO220_IGO
+Regulateur TO220 serie LM78xx
+TR TO220
+0
+3
+3
+NGS Elements THT
+TO220_IGO_E
+Regulateur TO220 serie LM78xx
+TR TO220
+0
+3
+3
+NGS Elements THT
+VR_ACP14
+variable resistor AVP14 horizontal
+resistor variable
+0
+3
+3
+NGS Elements THT
+VR_PRL
+variable resistor horizontal
+resistor variable
+0
+3
+3
+NGS Elements THT
+WirePad_200
+mostek 5mm
+
+0
+2
+2
+NGS Elements THT
+WirePad_400
+mostek 10mm
+
+0
+2
+2
+NGS Elements THT
+WirePad_600
+mostek 15mm
+
+0
+2
+2
+NGS Mech
+Heatsink_30x12
+heatsink 12x30mm TO220
+heatsink
+0
+0
+0
+NGS Mech
+Heatsink_30x12_woMPads
+heatsink 12x30mm TO220
+heatsink
+0
+0
+0
+NGS Mech
+Heatsink_A4463
+
+
+0
+0
+0
+NGS Mech
+Heatsink_A4463_woMPads
+
+
+0
+0
+0
+NGS Mech
+Heatsink_A4755_woMPads
+heatsink Kety A4755
+heatsink kety
+0
+0
+0
+NGS Mech
+Heatsink_A5793_woMPads
+A5793 profile
+heatsink kęty
+0
+0
+0
+NGS Mech
+Heatsink_DY-KY_Fix2
+Stonecold 2 fixes
+heatsink
+0
+2
+2
+NGS Mech
+Hole_10mm
+10mm hole
+
+0
+0
+0
+NGS Mech
+MountHole_3-0mm
+mount hole 3 mm
+mount
+0
+0
+0
+NGS Mech
+MountHole_M2-2
+
+
+0
+0
+0
+NGS Mech
+MountHole_M3
+mount hole M3
+mount
+0
+0
+0
+NGS Mech
+MountHole_M3_wPad
+
+
+0
+1
+1
+NGS Mech
+Outline_KM53B_108x81mm
+KM53B outline w.holes
+outline
+0
+0
+0
 NetTie
 NetTie-2_SMD_Pad0.5mm
 Net tie, 2 pin, 0.5mm square SMD pads
